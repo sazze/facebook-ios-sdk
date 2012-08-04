@@ -107,7 +107,7 @@ static NSString* kTestUser =@"499095509";
  * Start test with authorize as the first step
  */
 - (void) startTest {
-  [_facebook authorize:kAppId permissions:_permissions delegate:self];
+  //[_facebook authorize:kAppId permissions:_permissions delegate:self];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -283,7 +283,7 @@ static NSString* kTestUser =@"499095509";
 }
 
 - (void)request:(FBRequest*)request didFailWithError:(NSError*)error{
-  if ([request.url hasPrefix:[NSString stringWithFormat:@"%https://graph.facebook.com/%@/feed", 
+  if ([request.url hasPrefix:[NSString stringWithFormat:@"https://graph.facebook.com/%@/feed",
                               kTestUser]]) {
     if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"message"] 
          isEqualToString:@"(#210) User not visible"])
